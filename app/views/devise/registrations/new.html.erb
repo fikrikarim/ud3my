@@ -24,8 +24,8 @@
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <%= f.label :role, class: "mdl-textfield__label" %>
-      <%= select_tag :role, options_for_select([['Student', 'student'], ['Instructor', 'instructor'], ['Other', 'other']]), 
-        class: "mdl-textfield__input", id: "role", onchange: "roleField(this)", :value => "" %>
+      <%= f.select(:role, [['Student', 'student'], ['Instructor', 'instructor'], ['Other', 'other']], {}, 
+      { class: "mdl-textfield__input", id: "role", onchange: "roleField(this)"} ) %>
   </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label", style="display: none", id="instructor_id" >
