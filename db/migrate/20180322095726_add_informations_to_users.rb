@@ -6,6 +6,6 @@ class AddInformationsToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :instructor_id, :string
     add_column :users, :student_id, :string
     add_column :users, :department_name, :string
-    add_column :users, :role, :string, default: ""
+    add_column :users, :role, :string, null: false, default: ""
   end
 end
