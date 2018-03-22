@@ -18,3 +18,16 @@
 document.addEventListener('turbolinks:load', function () {
     componentHandler.upgradeDom();
 });
+
+function roleField(that) {
+    if (that.value === "instructor") {
+        document.getElementById("department_name").style.display = "inline-block";
+        document.getElementById("instructor_id").style.display = "inline-block";
+    } else if (that.value === "student") {
+        document.getElementById("student_id").style.display = "inline-block";
+    } else {
+        document.getElementById("department_name").style.display = "none";
+        document.getElementById("instructor_id").style.display = "none";
+        document.getElementById("student_id").style.display = "none";
+    }
+}
