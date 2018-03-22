@@ -6,11 +6,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
+      <%= render "layouts/navbar" %>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <div class="mdl-grid">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell--8-col content-container">
+              <%= render 'shared/alert' %>
+              <%= yield %>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+          </div>
+        </div>
+        <br>
+        <footer class="mdl-mini-footer footer-text">
+            Created with <3
+        </footer>
+      </main>
+
+    </div>
   </body>
 </html>

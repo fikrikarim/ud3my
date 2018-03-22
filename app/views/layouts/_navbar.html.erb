@@ -1,0 +1,21 @@
+<header class="mdl-layout__header">
+
+  <div class="mdl-layout__header-row">
+    <div class="mdl-cell--2-col-desktop"></div>
+    <!-- Title -->
+    <%= link_to root_path, class: "title-text" do %>
+      <span class="mdl-layout-title">Ud3my</span>
+    <% end %>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation -->
+    <nav class="mdl-navigation">
+      <% if user_signed_in? %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "mdl-button mdl-js-button login-button" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "mdl-button mdl-js-button login-button" %>
+      <% end %>
+    </nav>
+    <div class="mdl-cell--2-col-desktop"></div>
+  </div>
+</header>
