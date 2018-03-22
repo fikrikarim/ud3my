@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Set default ruby version
+ruby "2.4.3"
+
 # Use devise for authentication
 gem 'devise'
 
