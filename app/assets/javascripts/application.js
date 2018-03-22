@@ -19,12 +19,20 @@ document.addEventListener('turbolinks:load', function () {
     componentHandler.upgradeDom();
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    var role = document.getElementById("role");
+    roleField(role)
+});
+
 function roleField(that) {
     if (that.value === "instructor") {
+        document.getElementById("student_id").style.display = "none";
         document.getElementById("department_name").style.display = "inline-block";
         document.getElementById("instructor_id").style.display = "inline-block";
     } else if (that.value === "student") {
         document.getElementById("student_id").style.display = "inline-block";
+        document.getElementById("department_name").style.display = "none";
+        document.getElementById("instructor_id").style.display = "none";
     } else {
         document.getElementById("department_name").style.display = "none";
         document.getElementById("instructor_id").style.display = "none";
