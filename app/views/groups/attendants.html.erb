@@ -7,6 +7,7 @@
     <tr>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Email</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -15,7 +16,8 @@
       <tr>
         <td><%= attendant.first_name %></td>
         <td><%= attendant.last_name %></td>
-        <td><%= link_to 'Remove attendant', remove_attendant_path(attendant) %></td>
+        <td><%= attendant.email %></td>
+        <td><%# link_to 'Remove attendant', remove_attendant_path(attendant) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,6 +33,7 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -39,7 +42,7 @@
         <td><%= student.first_name %></td>
         <td><%= student.last_name %></td>
         <td><%= student.email %></td>
-        <td><%= link_to 'Add attendant', add_attendant_path(student) %></td>
+        <td><%# link_to 'Add attendant', add_attendant_path(student) %></td>
       </tr>
     <% end %>
   </tbody>
