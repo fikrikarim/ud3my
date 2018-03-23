@@ -44,7 +44,7 @@
         <td><%= student.last_name %></td>
         <td><%= student.email %></td>
         <td><%= student.group ? student.group.name : "-" %></td>
-        <td><%= link_to student.group ? "Move attendant" : "Add attendant", add_attendant_path(user_id: student.id), method: :post %></td>
+        <td><%= link_to student.group ? "Move attendant here" : "Add attendant", add_attendant_path(user_id: student.id), method: :post %></td>
       </tr>
     <% end %>
   </tbody>
