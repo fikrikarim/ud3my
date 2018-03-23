@@ -1,2 +1,3 @@
 class Group < ApplicationRecord
-end
+    has_many :users
+ end
