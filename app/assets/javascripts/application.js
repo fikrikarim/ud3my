@@ -21,7 +21,9 @@ document.addEventListener('turbolinks:load', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     var role = document.getElementById("role");
-    roleField(role)
+    if (role) {
+        roleField(role)
+    }
 });
 
 function roleField(that) {
