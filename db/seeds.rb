@@ -37,7 +37,7 @@ student1 = User.create! email: "kratae@gmail.com",
 
 student2 = User.create! email: "palmy@gmail.com",
                         first_name: "Palmy",
-                        last_name: "Cool",
+                        last_name: "Hand",
                         citizen_id: "c22222222",
                         student_id: "s22222222",
                         password: "nimbl3",

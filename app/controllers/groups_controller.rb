@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
 
   # GET /groups
   # GET /groups.json
@@ -26,6 +26,20 @@ class GroupsController < ApplicationController
   def attendants
     @attendants = @group.users
     @students = User.where(role: 'student', group_id: nil)
+  end
+
+  # POST /groups/1/add_attendant
+  def add_attendant
+    id = attendant_params[:user_id]
+    @group.users<<(User.find(id))
+    redirect_to group_attendants_path(@group), notice: 'A student was successfully added' 
+  end
+
+  # DELETE /groups/1/remove_attendant
+  def remove_attendant
+    id = attendant_params[:user_id]
+    @group.users.delete(id)
+    redirect_to group_attendants_path(@group), notice: 'A student was successfully removed' 
   end
 
   # POST /groups
@@ -77,5 +91,9 @@ class GroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
       params.require(:group).permit(:name)
+    end
+
+    def attendant_params
+      params.permit(:user_id, :id)
     end
 end
