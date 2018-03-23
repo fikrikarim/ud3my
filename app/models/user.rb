@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :group
-  
+  belongs_to :group, optional: true
+
   validates :first_name, :last_name, :citizen_id, :role, presence: true
 
   # validates_presence_of :first_name
