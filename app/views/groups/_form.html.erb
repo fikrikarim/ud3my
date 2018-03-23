@@ -16,11 +16,17 @@
   </div>
   
   <br>
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= f.label :project, class: "mdl-textfield__label" %>
+    <%= f.text_area :project, :rows => 7, class: "mdl-textfield__input", placeholder: "To assign project, paste your project link or your project content here" %>
+  </div>
+
+
+  <br>
   <br>
 
   <div class="actions">
     <%= f.submit "Submit", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent" %>
   </div>
 <% end %>
-
-<br>
