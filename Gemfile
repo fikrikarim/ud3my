@@ -17,6 +17,9 @@ gem 'material_design_lite-sass'
 # Use ransack for searching
 gem 'ransack'
 
+# Use Pundit for authorization
+gem "pundit"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
