@@ -1,10 +1,11 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
-
+  after_action :verify_authorized
   # GET /groups
   # GET /groups.json
   def index
     @groups = Group.all
+    authorize @groups
   end
 
   # GET /groups/1
