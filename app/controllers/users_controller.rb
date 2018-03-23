@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.where(role: 'student')
+    @q = User.where(role: 'student').ransack(params[:q])
+    @users = @q.result(distinct: true).includes(:group)
   end
 
   # GET /users/1
