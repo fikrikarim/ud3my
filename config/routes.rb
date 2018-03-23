@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :groups
   devise_for :users
-  resources :users
+  resources :users, path: "students"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/groups/:id/attendants', to: 'groups#attendants', as: 'group_attendants'
   post '/groups/:id/add_attendant/:user_id', to: 'groups#add_attendant', as: 'add_attendant'
