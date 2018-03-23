@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
+  before_action :authorize_page, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
   after_action :verify_authorized
+
   # GET /groups
   # GET /groups.json
   def index
@@ -17,6 +19,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.name = "Group ##{Group.count + 1}"
+    authorize @group
   end
 
   # GET /groups/1/edit
@@ -47,6 +50,7 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    authorize @group
 
     respond_to do |format|
       if @group.save
@@ -96,5 +100,9 @@ class GroupsController < ApplicationController
 
     def attendant_params
       params.permit(:user_id, :id)
+    end
+
+    def authorize_page
+      authorize @group
     end
 end
