@@ -1,8 +1,7 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, local: true) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,7 +10,62 @@
     </div>
   <% end %>
 
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label :first_name, class: "mdl-textfield__label" %>
+      <%= f.text_field :first_name, autofocus: true, class: "mdl-textfield__input" %>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label :last_name, class: "mdl-textfield__label" %>
+      <%= f.text_field :last_name, class: "mdl-textfield__input" %>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label :citizen_ID, class: "mdl-textfield__label" %>
+      <%= f.text_field :citizen_id, class: "mdl-textfield__input" %>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label :role, class: "mdl-textfield__label" %>
+      <%= f.select(:role, [['Student', 'student'], ['Instructor', 'instructor'], ['Other', 'other']], {}, 
+      { class: "mdl-textfield__input", id: "role", onchange: "roleField(this)"} ) %>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label", style="display: none", id="instructor_id" >
+      <%= f.label :instructor_ID, class: "mdl-textfield__label" %>
+      <%= f.text_field :instructor_id, class: "mdl-textfield__input"%>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label", style="display: none", id="department_name">
+      <%= f.label :department_name, class: "mdl-textfield__label" %>
+      <%= f.text_field :department_name, class: "mdl-textfield__input" %>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label", style="display: inline-block" , id="student_id">
+      <%= f.label :student_ID, class: "mdl-textfield__label" %>
+      <%= f.text_field :student_id, class: "mdl-textfield__input"%>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label :email, class: "mdl-textfield__label" %>
+      <%= f.email_field :email, class: "mdl-textfield__input" %>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label :password, class: "mdl-textfield__label" %>
+      <%= f.password_field :password, autocomplete: "off", class: "mdl-textfield__input", pattern: ".{6,}" %>
+      <span class="mdl-textfield__error">Minimum 6 characters</span>
+    </div>
+    <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label :password_confirmation, class: "mdl-textfield__label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "mdl-textfield__input" %>
+    </div>
+
+  <br>
+  <br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit "Submit", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent" %>
   </div>
 <% end %>

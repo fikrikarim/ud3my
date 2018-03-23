@@ -44,9 +44,9 @@ student2 = User.create! email: "palmy@gmail.com",
                         password_confirmation: "nimbl3",
                         role: "student"
 
-student3 = User.create! email: "michelle@gmail.com",
-                        first_name: "Michelle",
-                        last_name: "Chen",
+student3 = User.create! email: "Shen@gmail.com",
+                        first_name: "Shen",
+                        last_name: "Chia-Yi",
                         citizen_id: "c33333333",
                         student_id: "s33333333",
                         password: "nimbl3",
