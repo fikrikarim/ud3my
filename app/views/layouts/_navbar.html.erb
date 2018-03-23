@@ -12,6 +12,7 @@
     <nav class="mdl-navigation">
       <% if user_signed_in? %>
         <!-- Right aligned menu below button -->
+        <%= link_to "Users", users_path, class: "mdl-button mdl-js-button login-button"%>
         <%= link_to "Groups", groups_path, class: "mdl-button mdl-js-button login-button"%>
         <%= link_to "Logout", destroy_user_session_path, class: "mdl-button mdl-js-button login-button", method: :delete %>
       <% else %>
