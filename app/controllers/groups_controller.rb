@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
-  before_action :authorize_page, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
+  before_action :authorize_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
   after_action :verify_authorized
 
   # GET /groups
@@ -102,7 +102,7 @@ class GroupsController < ApplicationController
       params.permit(:user_id, :id)
     end
 
-    def authorize_page
+    def authorize_group
       authorize @group
     end
 end
