@@ -2,9 +2,9 @@ class CreateGroups < ActiveRecord::Migration[5.1]
   def change
     create_table :groups do |t|
       t.string :name
-      t.string :project
-      t.string :submission
-      t.string :score
+      t.text :project
+      t.text :submission
+      t.integer :score
       
       t.timestamps
     end

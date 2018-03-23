@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 20180323013728) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
-    t.string "project"
-    t.string "submission"
-    t.string "score"
+    t.text "project"
+    t.text "submission"
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
