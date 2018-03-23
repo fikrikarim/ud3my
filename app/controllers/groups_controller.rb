@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    @group.name = "Group ##{Group.count + 1}"
   end
 
   # GET /groups/1/edit
