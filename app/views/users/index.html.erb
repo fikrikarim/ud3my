@@ -3,8 +3,7 @@
 <h1 class="mdl-typography--display-1">Students</h1>
 
 <%= search_form_for @q do |f| %>
-  <%= f.search_field :first_name_or_last_name_or_student_id_or_group_name_cont %>
-
+  <%= f.search_field :search_cont %>
   <%= f.submit %>
 <% end %>
 

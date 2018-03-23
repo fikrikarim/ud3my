@@ -8,13 +8,11 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :citizen_id, :role, presence: true
 
-  # validates_presence_of :first_name
-  # validates_presence_of :last_name
-  # validates_presence_of :citizen_id
-  # validates_presence_of :role
   validates_presence_of :student_id, :if => :student?
   validates_presence_of :instructor_id, :if => :instructor?
   validates_presence_of :department_name, :if => :instructor?
+
+  ransack_alias :search, :first_name_or_last_name_or_student_id_or_group_name
 
   def student?
     role == "student"
