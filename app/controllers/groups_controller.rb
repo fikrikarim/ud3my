@@ -22,6 +22,11 @@ class GroupsController < ApplicationController
   def edit
   end
 
+  # GET /groups/1/attendants
+  def attendants
+
+  end
+
   # POST /groups
   # POST /groups.json
   def create
