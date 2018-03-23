@@ -3,8 +3,12 @@
 <h1 class="mdl-typography--display-1">Students</h1>
 
 <%= search_form_for @q do |f| %>
-  <%= f.search_field :search_cont %>
-  <%= f.submit %>
+
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <%= f.label "Search by name, student id, or group name", class: "mdl-textfield__label" %>
+  <%= f.search_field :search_cont, class: "mdl-textfield__input" %>
+    </div>
+  <%= f.submit "Search", class: "mdl-button mdl-js-button"  %>
 <% end %>
 
 
