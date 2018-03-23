@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="mdl-typography--display-1">Current Attendants</h1>
+
+<table class="mdl-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @attendants.each do |attendant| %>
+      <tr>
+        <td><%= attendant.first_name %></td>
+        <td><%= attendant.last_name %></td>
+        <td><%= link_to 'Remove attendant', remove_attendant_path(attendant) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1 class="mdl-typography--display-1">Add Attendants</h1>
+
+<table class="mdl-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= link_to 'Add attendant', add_attendant_path(student) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'Back', groups_path %>
