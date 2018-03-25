@@ -103,6 +103,6 @@ group2.users<<(student3)
 group2.users<<(student4)
 
 group3 = Group.create! name: "ฉันไม่รู้ว่าการแปลถูกต้องหรือไม่"
-group2.users<<(student5)
+group3.users<<(student5)
 
 group4 = Group.create! name: "Group #4"
