@@ -50,7 +50,15 @@ class GroupsController < ApplicationController
   end
 
   def update_submission
-
+    respond_to do |format|
+      if @group.update(submission_params)
+        format.html { redirect_to @group, notice: 'Submission was successfully updated.' }
+        format.json { render :show, status: :ok, location: @group }
+      else
+        format.html { render :edit }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /groups
@@ -103,6 +111,10 @@ class GroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
       params.require(:group).permit(:name, :project, :score)
+    end
+
+    def submission_params
+      params.require(:group).permit(:submission)
     end
 
     def attendant_params
