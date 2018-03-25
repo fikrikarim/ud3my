@@ -21,5 +21,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: ud3my_production
+  username: ud3my
+  password: <%= ENV['ud3my_DATABASE_PASSWORD'] %>

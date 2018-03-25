@@ -11,6 +11,8 @@ ruby "2.4.3"
 # Use devise for authentication
 gem 'devise'
 
+# Use postgresql for production
+gem 'pg'
 # Use Material Design Lite for CSS Framework
 gem 'material_design_lite-sass'
 
@@ -22,8 +24,6 @@ gem "pundit"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -53,6 +53,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem "guard"
@@ -60,6 +65,12 @@ group :development, :test do
   gem "launchy"
   gem 'spring-commands-rspec'
   gem 'database_cleaner'
+<<<<<<< Updated upstream
+=======
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 end
 
 group :development do
