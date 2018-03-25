@@ -107,4 +107,6 @@ Adding submission or changing group name. Can be accessed by user who belongs to
 ## TODO
  - [ ] Writing test for Policies. Right now don't write test because still to simple. Easier to look at the policy file.
  - [ ] Writing test for Controllers. Most of the current use cases are already included in feature spec.
- - [ ] Table not responsive yet.
+ - [ ] Writing test for CRUD features. Most of the CRUD features are generated through scaffold, and are expected to work well.
+ - [ ] The tables on Students and Groups page are not responsive yet.
+ - [ ] The current relationship between users and group is: user belongs_to group and group has_many users. This is enough for the current product specification. But if the product will be continued, it will be hard to archive or save the user submission and score. The relationship should be changed to has_and_belongs_to_many for users and group. Or create additional model like `submission` that can archive user submission separately.
