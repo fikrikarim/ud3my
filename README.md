@@ -32,6 +32,7 @@ rails server
 ```bash
 guard
 ```
+then press enter
 
 ## Additional gem used
 
@@ -65,10 +66,10 @@ belongs_to :group, optional: true
 
 Schema:
 ```ruby
-t.string "name"
-t.text "project"
-t.text "submission"
-t.integer "score"
+string "name"
+text "project"
+text "submission"
+integer "score"
 ```
 
 Relationship:
