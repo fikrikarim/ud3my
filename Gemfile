@@ -57,7 +57,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "guard"
   gem "guard-rspec"
-
+  gem 'spring-commands-rspec'
 end
 
 group :development do
