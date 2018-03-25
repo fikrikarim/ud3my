@@ -18,7 +18,6 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Current Group</th>
-      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -28,13 +27,21 @@
         <td><%= attendant.last_name %></td>
         <td><%= attendant.email %></td>
         <td><%= attendant.group.name %></td>
-        <td><%= link_to 'Remove attendant', remove_attendant_path(user_id: attendant.id), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br/>
-<%= link_to 'Edit Attendants', group_attendants_path(@group) %> |
-<%= link_to 'Edit Group Project or Score', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+
+<% if policy(:group).attendants? %>
+  <%= link_to 'Edit Attendants', group_attendants_path(@group) %> |
+<% end %>
+
+<% if policy(:group).edit? %>
+  <%= link_to 'Edit Group Project or Score', edit_group_path(@group) %> |
+<% end %>
+
+<% if policy(:group).index? %>
+  <%= link_to 'Back', groups_path %>
+<% end %>
