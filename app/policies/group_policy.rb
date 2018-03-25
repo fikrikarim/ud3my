@@ -45,4 +45,12 @@ class GroupPolicy < ApplicationPolicy
     user.instructor?
   end
 
+  def edit_submission
+    user.group == record
+  end
+
+  def update_submission
+    user.group == record
+  end
+
 end

@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
-  before_action :authorize_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant, :edit_submission, :update_submission]
+  before_action :authorize_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant, :edit_submission, :update_submission]
   after_action :verify_authorized
 
   # GET /groups
@@ -43,6 +43,14 @@ class GroupsController < ApplicationController
     id = attendant_params[:user_id]
     @group.users.delete(id)
     redirect_to group_attendants_path(@group), notice: 'A student was successfully removed' 
+  end
+
+  def edit_submission
+
+  end
+
+  def update_submission
+
   end
 
   # POST /groups
