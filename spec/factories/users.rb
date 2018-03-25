@@ -25,4 +25,15 @@ FactoryGirl.define do
     citizen_id "12345678"
     role "student"
   end
+
+  factory :user, :class => 'User' do
+    email
+    password "nimbl3"
+    password_confirmation "nimbl3"
+    first_name "Olivier"
+    last_name "Robert"
+    student_id "12345678"
+    citizen_id "12345678"
+    role "student"
+  end
 end
