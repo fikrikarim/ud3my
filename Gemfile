@@ -53,11 +53,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem "guard"
@@ -65,12 +60,8 @@ group :development, :test do
   gem "launchy"
   gem 'spring-commands-rspec'
   gem 'database_cleaner'
-<<<<<<< Updated upstream
-=======
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 end
 
 group :development do
