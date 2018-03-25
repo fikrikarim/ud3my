@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User system' do
+feature 'Devise system' do
 
   describe "login" do
 

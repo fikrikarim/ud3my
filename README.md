@@ -107,3 +107,4 @@ Adding submission or changing group name. Can be accessed by user who belongs to
 ## TODO
  - [ ] Writing test for Policies. Right now don't write test because still to simple. Easier to look at the policy file.
  - [ ] Writing test for Controllers. Most of the current use cases are already included in feature spec.
+ - [ ] Table not responsive yet.

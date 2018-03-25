@@ -57,6 +57,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "guard"
   gem "guard-rspec"
+  gem "launchy"
   gem 'spring-commands-rspec'
   gem 'database_cleaner'
 end
