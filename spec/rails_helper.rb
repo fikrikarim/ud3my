@@ -44,6 +44,19 @@ RSpec.configure do |config|
   # Use factory girl shortcut syntax
   config.include FactoryGirl::Syntax::Methods
 
+  # Use database cleaner to ensure the database is clean before running test suite
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
