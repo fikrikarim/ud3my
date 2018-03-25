@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @attendants.each do |attendant| %>
+    <% @group.users.each do |attendant| %>
       <tr>
         <td><%= attendant.first_name %></td>
         <td><%= attendant.last_name %></td>
@@ -52,4 +52,5 @@
 
 <br/>
 
-<%= link_to 'Back', groups_path %>
+<%= link_to 'Group information', @group %> | 
+<%= link_to 'Groups List', groups_path %>

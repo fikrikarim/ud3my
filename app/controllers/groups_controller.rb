@@ -28,7 +28,6 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/attendants
   def attendants
-    @attendants = @group.users
     @students = User.where(role: 'student').where.not(group_id: @group.id).or(User.where(role: 'student', group_id: nil))
   end
 
@@ -95,7 +94,7 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :project)
+      params.require(:group).permit(:name, :project, :score)
     end
 
     def attendant_params

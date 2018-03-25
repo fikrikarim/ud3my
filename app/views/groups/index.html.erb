@@ -9,7 +9,7 @@
       <th>Number of People</th>
       <th>Submission</th>
       <th>Score</th>
-      <th colspan="3">Actions</th>
+      <th colspan="4">Actions</th>
     </tr>
   </thead>
 
@@ -22,6 +22,7 @@
         <td><%= group.score? ? group.score : "-" %></td>
         <td><%= link_to 'Attendants', group_attendants_path(group) %></td>
         <td><%= link_to 'Show', group %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
