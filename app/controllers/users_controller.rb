@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:show, :edit, :update, :destroy]
+  after_action :verify_authorized
 
   # GET /users
   # GET /users.json
   def index
     @q = User.where(role: 'student').ransack(params[:q])
     @users = @q.result(distinct: true).includes(:group)
+    authorize @users
   end
 
   # GET /users/1
@@ -16,6 +19,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    authorize @user
   end
 
   # GET /users/1/edit
@@ -27,6 +31,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.role = 'student'
+    authorize @user
 
     respond_to do |format|
       if @user.save
@@ -72,5 +77,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:first_name, :last_name, :citizen_id, :student_id, :email, :password, :password_confirmation)
+    end
+
+    def authorize_user
+      authorize @user
     end
 end

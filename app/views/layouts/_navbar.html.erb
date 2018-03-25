@@ -12,8 +12,15 @@
     <nav class="mdl-navigation">
       <% if user_signed_in? %>
         <!-- Right aligned menu below button -->
-        <%= link_to "Students", users_path, class: "mdl-button mdl-js-button login-button"%>
-        <%= link_to "Groups", groups_path, class: "mdl-button mdl-js-button login-button"%>
+        <% if policy(:user).index? %>
+          <%= link_to "Students", users_path, class: "mdl-button mdl-js-button login-button"%>
+        <% end %>
+        <% if policy(:group).index? %>
+          <%= link_to "Groups", groups_path, class: "mdl-button mdl-js-button login-button"%>
+        <% end %>
+        <% if current_user.student? %>
+          <%= link_to "My group", current_user.group, class: "mdl-button mdl-js-button login-button"%>
+        <% end %>
         <%= link_to "Logout", destroy_user_session_path, class: "mdl-button mdl-js-button login-button", method: :delete %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "mdl-button mdl-js-button login-button" %>

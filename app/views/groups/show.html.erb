@@ -1,4 +1,51 @@
 <p id="notice"><%= notice %></p>
+<h1 class="mdl-typography--display-1"><%= @group.name %></h1>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<h3 class="mdl-typography--title">Project</h3>
+<p class="mdl-typography--body-1"><%= @group.project || "-" %></p>
+
+<h3 class="mdl-typography--title">Submission</h3>
+<p class="mdl-typography--body-1"><%= @group.submission || "-" %></p>
+
+<h3 class="mdl-typography--title">Score</h3>
+<p class="mdl-typography--body-1"><%= @group.score || "-" %></p>
+
+<h3 class="mdl-typography--title">Current Attendants</h3>
+<table class="mdl-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Current Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @group.users.each do |attendant| %>
+      <tr>
+        <td><%= attendant.first_name %></td>
+        <td><%= attendant.last_name %></td>
+        <td><%= attendant.email %></td>
+        <td><%= attendant.group.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<% if policy(:group).attendants? %>
+  <%= link_to 'Edit Attendants', group_attendants_path(@group) %> |
+<% end %>
+
+<% if policy(:group).edit? %>
+  <%= link_to 'Edit Group Project or Score', edit_group_path(@group) %> |
+<% end %>
+
+<% if policy(:group).index? %>
+  <%= link_to 'Back', groups_path %>
+<% end %>
+
+<% if current_user.student? %>
+  <%= link_to 'Edit submission / group name', group_edit_submission_path(@group) %>
+<% end %>

@@ -1,10 +1,13 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant, :edit_submission, :update_submission]
+  before_action :authorize_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant, :edit_submission, :update_submission]
+  after_action :verify_authorized
 
   # GET /groups
   # GET /groups.json
   def index
     @groups = Group.all
+    authorize @groups
   end
 
   # GET /groups/1
@@ -16,6 +19,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.name = "Group ##{Group.count + 1}"
+    authorize @group
   end
 
   # GET /groups/1/edit
@@ -24,7 +28,6 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/attendants
   def attendants
-    @attendants = @group.users
     @students = User.where(role: 'student').where.not(group_id: @group.id).or(User.where(role: 'student', group_id: nil))
   end
 
@@ -42,10 +45,27 @@ class GroupsController < ApplicationController
     redirect_to group_attendants_path(@group), notice: 'A student was successfully removed' 
   end
 
+  def edit_submission
+
+  end
+
+  def update_submission
+    respond_to do |format|
+      if @group.update(submission_params)
+        format.html { redirect_to @group, notice: 'Submission was successfully updated.' }
+        format.json { render :show, status: :ok, location: @group }
+      else
+        format.html { render :edit }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # POST /groups
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    authorize @group
 
     respond_to do |format|
       if @group.save
@@ -90,10 +110,18 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :project)
+      params.require(:group).permit(:name, :project, :score)
+    end
+
+    def submission_params
+      params.require(:group).permit(:submission, :name)
     end
 
     def attendant_params
       params.permit(:user_id, :id)
+    end
+
+    def authorize_group
+      authorize @group
     end
 end
