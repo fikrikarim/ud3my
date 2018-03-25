@@ -22,15 +22,15 @@ instructor2 = User.create!  email: "fkfikrikarim@gmail.com",
                             citizen_id: "10416005",
                             password: "NARUTO",
                             password_confirmation: "NARUTO",
-                            department_name: "Microbiology",
+                            department_name: "Microbiology yay",
                             instructor_id: "16116093",
                             role: "instructor"
 
 student1 = User.create! email: "kratae@gmail.com",
                         first_name: "Kratae",
                         last_name: "Rsiam",
-                        citizen_id: "c11111111",
-                        student_id: "s11111111",
+                        citizen_id: "84419957",
+                        student_id: "68883848",
                         password: "nimbl3",
                         password_confirmation: "nimbl3",
                         role: "student"
@@ -38,8 +38,8 @@ student1 = User.create! email: "kratae@gmail.com",
 student2 = User.create! email: "palmy@gmail.com",
                         first_name: "Palmy",
                         last_name: "Hand",
-                        citizen_id: "c22222222",
-                        student_id: "s22222222",
+                        citizen_id: "29742039",
+                        student_id: "85364979",
                         password: "nimbl3",
                         password_confirmation: "nimbl3",
                         role: "student"
@@ -47,8 +47,8 @@ student2 = User.create! email: "palmy@gmail.com",
 student3 = User.create! email: "Shen@gmail.com",
                         first_name: "Shen",
                         last_name: "Chia-Yi",
-                        citizen_id: "c33333333",
-                        student_id: "s33333333",
+                        citizen_id: "37234749",
+                        student_id: "71902308",
                         password: "nimbl3",
                         password_confirmation: "nimbl3",
                         role: "student"
@@ -56,8 +56,8 @@ student3 = User.create! email: "Shen@gmail.com",
 student4 = User.create! email: "nattasha@gmail.com",
                         first_name: "Nattasha",
                         last_name: "Nauljam",
-                        citizen_id: "c44444444",
-                        student_id: "s44444444",
+                        citizen_id: "39349363",
+                        student_id: "51006564",
                         password: "nimbl3",
                         password_confirmation: "nimbl3",
                         role: "student"
@@ -65,8 +65,8 @@ student4 = User.create! email: "nattasha@gmail.com",
 student5 = User.create! email: "somchai@gmail.com",
                         first_name: "Somchai",
                         last_name: "Nan",
-                        citizen_id: "c55555555",
-                        student_id: "s55555555",
+                        citizen_id: "11529265",
+                        student_id: "86392057",
                         password: "nimbl3",
                         password_confirmation: "nimbl3",
                         role: "student"
@@ -74,8 +74,8 @@ student5 = User.create! email: "somchai@gmail.com",
 student6 = User.create! email: "somsak@gmail.com",
                         first_name: "Somsak",
                         last_name: "Fah",
-                        citizen_id: "c66666666",
-                        student_id: "s66666666",
+                        citizen_id: "79448469",
+                        student_id: "93886838",
                         password: "nimbl3",
                         password_confirmation: "nimbl3",
                         role: "student"
@@ -83,18 +83,26 @@ student6 = User.create! email: "somsak@gmail.com",
 student7 = User.create! email: "prasert@gmail.com",
                         first_name: "Prasert",
                         last_name: "Nan",
-                        citizen_id: "c77777777",
-                        student_id: "s77777777",
+                        citizen_id: "22253660",
+                        student_id: "62433022",
                         password: "nimbl3",
                         password_confirmation: "nimbl3",
                         role: "student"
 
-group1 = Group.create! name: "Rock Bottom Singer"
+group1 = Group.create! name: "Thaiband 🇹🇭",
+                       project: "Create a catchy music video",
+                       submission: "https://www.youtube.com/watch?v=y6120QOlsfU",
+                       score: "100"
 group1.users<<(student1)
 group1.users<<(student2)
 
-group2 = Group.create! name: "ภาพยนตร์ที่ฉันรู้"
+group2 = Group.create! name: "ภาพยนตร์ที่ฉันรู้",
+                       project: "Search a movie that you think shows best side of humanity",
+                       submission: "www.imdb.com/title/tt0050083/"
 group2.users<<(student3)
 group2.users<<(student4)
 
-group3 = Group.create! name: "Group #3"
+group3 = Group.create! name: "ฉันไม่รู้ว่าการแปลถูกต้องหรือไม่"
+group2.users<<(student5)
+
+group4 = Group.create! name: "Group #4"
