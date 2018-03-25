@@ -1,24 +1,44 @@
-# README
+# Interview Homework Project for Nimbl3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+## Installation
 
 * Ruby version
+```ruby
+2.4.3
+```
 
-* System dependencies
+* Rails version
+```ruby
+5.1.5
+```
 
-* Configuration
+* Gem installation, run:
+```bash
+bundle install
+```
 
-* Database creation
+* Database initialization, run:
+```bash
+rails db:migrate
+rails db:seed
+```
 
-* Database initialization
+* Development server, run:
+```bash
+rails server
+```
 
-* How to run the test suite
+* Running the test suite:
+```bash
+guard
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Additional gem used
 
-* Deployment instructions
+* [Devise](https://github.com/plataformatec/devise), for authentication system.
+* [Pundit](https://github.com/varvet/pundit), for authorization management.
+* [ransack](https://github.com/activerecord-hackery/ransack), for search capability.
+* [Material Design Lite Sass](material_design_lite-sass), for css framework.
 
-* ...
+## Model
+
