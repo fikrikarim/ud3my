@@ -114,7 +114,7 @@ class GroupsController < ApplicationController
     end
 
     def submission_params
-      params.require(:group).permit(:submission)
+      params.require(:group).permit(:submission, :name)
     end
 
     def attendant_params
