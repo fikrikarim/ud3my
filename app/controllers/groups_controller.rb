@@ -45,10 +45,11 @@ class GroupsController < ApplicationController
     redirect_to group_attendants_path(@group), notice: 'A student was successfully removed' 
   end
 
+  # GET /groups/1/edit_submission
   def edit_submission
-
   end
 
+  # POST /groups/1/update_submission
   def update_submission
     respond_to do |format|
       if @group.update(submission_params)
