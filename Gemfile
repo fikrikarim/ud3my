@@ -53,6 +53,13 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem "guard"
+  gem "guard-rspec"
+  gem "launchy"
+  gem 'spring-commands-rspec'
+  gem 'database_cleaner'
 end
 
 group :development do

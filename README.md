@@ -32,6 +32,7 @@ rails server
 ```bash
 guard
 ```
+then press enter
 
 ## Additional gem used
 
@@ -42,3 +43,70 @@ guard
 
 ## Model
 
+### User
+
+Schema (other than columns provided by devise):
+```ruby
+string "first_name", required
+string "last_name", required
+string "citizen_id", required
+string "instructor_id", required if user.instructor?
+string "student_id", required if user.student?
+string "department_name", required if user.instructor?
+string "role", required
+integer "group_id"
+```
+
+Relationship:
+```ruby
+belongs_to :group, optional: true
+```
+
+### Group
+
+Schema:
+```ruby
+string "name"
+text "project"
+text "submission"
+integer "score"
+```
+
+Relationship:
+```ruby
+has_many :users
+```
+
+## Controller
+### *Standard CRUD for Users*
+Different controller than DeviseController. UsersController is used for creating and managing users. Can only be accessed by instructors.
+
+### *Standard CRUD for Groups*
+GroupsController is used for creating and managing groups. Can only be accessed by instructors.
+
+### *groups#attendants*
+GET /groups/1/attendants  
+Listing all the attendants for a specific group. Can only be accessed by instructors.
+
+### *groups#add_attendant*
+POST /groups/1/add_attendant  
+Adding a attendant to a group. Can only be accessed by instructors.
+
+### *groups#remove_attendant*
+DELETE /groups/1/remove_attendant  
+Removing a attendant to a group. Can only be accessed by instructors.
+
+### *groups#edit_submission*
+GET /groups/1/edit_submission  
+Adding submission or changing group name. Can be accessed by user who belongs to that group.
+
+### *groups#update_submission*
+POST /groups/1/update_submission  
+Adding submission or changing group name. Can be accessed by user who belongs to that group.
+
+## TODO
+ - [ ] Writing test for Policies. Right now don't write test because still to simple. Easier to look at the policy file.
+ - [ ] Writing test for Controllers. Most of the current use cases are already included in feature spec.
+ - [ ] Writing test for CRUD features. Most of the CRUD features are generated through scaffold, and are expected to work well.
+ - [ ] The tables on Students and Groups page are not responsive yet.
+ - [ ] The current relationship between users and group is: user belongs_to group and group has_many users. This is enough for the current product specification. But if the product will be continued, it will be hard to archive or save the user submission and score. The relationship should be changed to has_and_belongs_to_many for users and group. Or create additional model like `submission` that can archive user submission separately.
