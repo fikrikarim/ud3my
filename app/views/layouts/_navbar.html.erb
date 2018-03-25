@@ -18,7 +18,7 @@
         <% if policy(:group).index? %>
           <%= link_to "Groups", groups_path, class: "mdl-button mdl-js-button login-button"%>
         <% end %>
-        <% if current_user.student? %>
+        <% if current_user.student? && current_user.group %>
           <%= link_to "My group", current_user.group, class: "mdl-button mdl-js-button login-button"%>
         <% end %>
         <%= link_to "Logout", destroy_user_session_path, class: "mdl-button mdl-js-button login-button", method: :delete %>

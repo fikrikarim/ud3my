@@ -1,3 +1,9 @@
-Hello! Welcome to Ud3my. 
-
-<%= current_user ? "Click link on the top to continue" : "Please Login to continue." %>
+<h1 class="mdl-typography--display-1">Hello! Welcome to Ud3my.</h1>
+<p class="mdl-typography--body-1">
+    <%= current_user ? "Click link on the top to continue" : "Please Login to continue." %>
+</p>
+<p class="mdl-typography--body-1">
+    <% if current_user && current_user.group == nil %>
+        It looks like you don't have any group yet. Please contact your instructor for further information.
+    <% end %>
+</p>
