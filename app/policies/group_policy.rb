@@ -26,7 +26,7 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def show?
-    user.instructor?
+    user.instructor? || user.group == record
   end
 
   def edit?
