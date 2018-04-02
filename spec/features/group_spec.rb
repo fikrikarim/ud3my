@@ -4,7 +4,11 @@ feature 'Group' do
     describe "instructor" do
         before(:each) do
             @instructor = create(:instructor)
-            login(@instructor)
+            login_as(@instructor)
+        end
+
+        after(:each) do
+            Warden.test_reset! 
         end
 
         scenario "can visit students page from root path" do

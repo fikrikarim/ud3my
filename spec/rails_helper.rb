@@ -33,13 +33,16 @@ RSpec.configure do |config|
   # Using devise test controller
   config.include Devise::Test::ControllerHelpers, type: :controller
 
+  # Use Warden::Test::Helpers to login users programmaticaly (faster tests 🚀)
+  config.include Warden::Test::Helpers
+
   # Add LoginMacros
   config.include LoginMacros, type: :feature
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # Use factory girl shortcut syntax
   config.include FactoryGirl::Syntax::Methods
