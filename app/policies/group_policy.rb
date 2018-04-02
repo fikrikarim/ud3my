@@ -5,52 +5,28 @@ class GroupPolicy < ApplicationPolicy
     end
   end
 
-  def index?
+  def instructor?
     user.instructor?
   end
 
-  def new?
-    user.instructor?
+  def owner?
+    user.group == record
   end
 
-  def create?
-    user.instructor?
-  end
-
-  def update?
-    user.instructor?
-  end
-
-  def destroy?
-    user.instructor?
-  end
+  alias index? instructor?
+  alias new? instructor?
+  alias create? instructor?
+  alias update? instructor?
+  alias destroy? instructor?
+  alias edit? instructor?
+  alias attendants? instructor?
+  alias add_attendant? instructor?
+  alias remove_attendant? instructor?
+  alias edit_submission? owner?
+  alias update_submission? owner?
 
   def show?
     user.instructor? || user.group == record
-  end
-
-  def edit?
-    user.instructor?
-  end
-
-  def attendants?
-    user.instructor?
-  end
-
-  def add_attendant?
-    user.instructor?
-  end
-
-  def remove_attendant?
-    user.instructor?
-  end
-
-  def edit_submission?
-    user.group == record
-  end
-
-  def update_submission?
-    user.group == record
   end
 
 end

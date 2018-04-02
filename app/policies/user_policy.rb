@@ -5,31 +5,15 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def index?
+  def manage?
     user.instructor?
   end
 
-  def show?
-    user.instructor?
-  end
-
-  def new?
-    user.instructor?
-  end
-
-  def edit?
-    user.instructor?
-  end
-
-  def create?
-    user.instructor?
-  end
-
-  def update?
-    user.instructor?
-  end
-
-  def destroy?
-    user.instructor?
-  end
+  alias index? manage?
+  alias show? manage?
+  alias new? manage?
+  alias edit? manage?
+  alias create? manage?
+  alias update? manage?
+  alias destroy? manage?
 end
