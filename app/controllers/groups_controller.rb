@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant, :edit_submission, :update_submission]
-  before_action :authorize_group, only: [:show, :edit, :update, :destroy, :attendants, :add_attendant, :remove_attendant, :edit_submission, :update_submission]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :attendants, :edit_submission, :update_submission]
+  before_action :authorize_group, only: [:show, :edit, :update, :destroy, :attendants, :edit_submission, :update_submission]
   after_action :verify_authorized
 
   # GET /groups
@@ -29,20 +29,6 @@ class GroupsController < ApplicationController
   # GET /groups/1/attendants
   def attendants
     @students = User.where(role: 'student').where.not(group_id: @group.id).or(User.where(role: 'student', group_id: nil))
-  end
-
-  # POST /groups/1/add_attendant
-  def add_attendant
-    id = attendant_params[:user_id]
-    @group.users<<(User.find(id))
-    redirect_to group_attendants_path(@group), notice: 'A student was successfully added' 
-  end
-
-  # DELETE /groups/1/remove_attendant
-  def remove_attendant
-    id = attendant_params[:user_id]
-    @group.users.delete(id)
-    redirect_to group_attendants_path(@group), notice: 'A student was successfully removed' 
   end
 
   # GET /groups/1/edit_submission
@@ -116,10 +102,6 @@ class GroupsController < ApplicationController
 
     def submission_params
       params.require(:group).permit(:submission, :name)
-    end
-
-    def attendant_params
-      params.permit(:user_id, :id)
     end
 
     def authorize_group
